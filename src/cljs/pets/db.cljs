@@ -29,10 +29,8 @@
  (let [new-pet (assoc (nth (:pets state) (:selected-pet state)) :name new-name)]
    (assoc state :pets
     (map
-     (fn [pet]
-      (if (= (:id pet) (:id new-pet))
-       new-pet
-       pet))
+     (fn [{:keys [id] :as pet}]
+      (if (= id (:id new-pet) new-pet pet)))
      (:pets state)))))
 
 
