@@ -30,7 +30,7 @@
    (assoc state :pets
     (map
      (fn [{:keys [id] :as pet}]
-      (if (= id (:id new-pet) new-pet pet)))
+      (if (= id (:id new-pet)) new-pet pet))
      (:pets state)))))
 
 
